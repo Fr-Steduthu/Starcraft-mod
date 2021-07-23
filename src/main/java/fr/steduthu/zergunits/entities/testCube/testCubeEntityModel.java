@@ -13,7 +13,7 @@ public class testCubeEntityModel<T extends testCubeEntity> extends EntityModel<T
 
     public testCubeEntityModel() {
             texHeight = 16;
-            texHeight = 16;
+            texWidth = 16;
 
             bb_main = new ModelRenderer(this);
             bb_main.setPos(0.0F, 24.0F, 0.0F);

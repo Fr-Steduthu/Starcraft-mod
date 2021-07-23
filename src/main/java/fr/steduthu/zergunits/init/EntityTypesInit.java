@@ -2,6 +2,7 @@ package fr.steduthu.zergunits.init;
 
 import fr.steduthu.zergunits.ZergUnits;
 import fr.steduthu.zergunits.entities.hydralisk.HydraliskEntity;
+import fr.steduthu.zergunits.entities.hydralisk.HydraliskNeedle;
 import fr.steduthu.zergunits.entities.testCube.testCubeEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -14,10 +15,16 @@ public class EntityTypesInit {
 
     public static  final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, ZergUnits.MODID);
 
+    public static final RegistryObject<EntityType<HydraliskNeedle>> HYDRALISK_NEEDLE =
+            ENTITY_TYPES.register("hydralisk_needle",() -> EntityType.Builder.of(HydraliskNeedle::new, EntityClassification.MISC)
+                    .sized(1.0f,1.5f)
+                    .build(new ResourceLocation(ZergUnits.MODID, "hydralisk_needle").toString())
+            );
+
     public static final RegistryObject<EntityType<HydraliskEntity>> HYDRALISK =
            ENTITY_TYPES.register("hydralisk",() -> EntityType.Builder.of(HydraliskEntity::new, EntityClassification.MONSTER)
-                    .sized(2.0f,2.0f)
-                    .build(new ResourceLocation(ZergUnits.MODID, "hydralisk").toString())
+                   .sized(1.0f,1.0f)
+                   .build(new ResourceLocation(ZergUnits.MODID, "hydralisk").toString())
             );
 
     public static final RegistryObject<EntityType<testCubeEntity>> CUBE =
@@ -25,4 +32,5 @@ public class EntityTypesInit {
                     .sized(1.0f,1.0f)
                     .build(new ResourceLocation(ZergUnits.MODID, "cube").toString())
             );
+
 }
