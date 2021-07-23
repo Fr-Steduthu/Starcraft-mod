@@ -40,7 +40,7 @@ public class ZergUnits{
 	@SuppressWarnings("deprecation")
 	private void setup(FMLCommonSetupEvent e){
 		DeferredWorkQueue.runLater(()->{
-			//GlobalEntityTypeAttributes.put(EntityTypesInit.HYDRALISK.get(), HydraliskEntity.setAttributes().build());
+			GlobalEntityTypeAttributes.put(EntityTypesInit.HYDRALISK.get(), HydraliskEntity.setAttributes().build());
 			GlobalEntityTypeAttributes.put(EntityTypesInit.CUBE.get(), testCubeEntity.setAttributes().build());
 		});
 	}

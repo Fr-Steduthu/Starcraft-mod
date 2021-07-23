@@ -14,12 +14,12 @@ public class EntityTypesInit {
 
     public static  final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, ZergUnits.MODID);
 
-    /*public static final RegistryObject<EntityType<HydraliskEntity>> HYDRALISK =
+    public static final RegistryObject<EntityType<HydraliskEntity>> HYDRALISK =
            ENTITY_TYPES.register("hydralisk",() -> EntityType.Builder.of(HydraliskEntity::new, EntityClassification.MONSTER)
-                    .sized(1.0f,1.0f)
+                    .sized(2.0f,2.0f)
                     .build(new ResourceLocation(ZergUnits.MODID, "hydralisk").toString())
             );
-*/
+
     public static final RegistryObject<EntityType<testCubeEntity>> CUBE =
            ENTITY_TYPES.register("cube",() -> EntityType.Builder.of(testCubeEntity::new, EntityClassification.MONSTER)
                     .sized(1.0f,1.0f)

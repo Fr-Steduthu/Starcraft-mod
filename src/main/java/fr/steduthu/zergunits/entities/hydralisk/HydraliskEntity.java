@@ -25,12 +25,12 @@ public class HydraliskEntity extends MobEntity {
                 .add(Attributes.ATTACK_DAMAGE, 0.0f);
     }
 
-    @Override
+    /*@Override
     protected void registerGoals() {
         super.registerGoals();
 
         this.goalSelector.addGoal(1, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 8.0F));
 
-    }
+    }*/
 }

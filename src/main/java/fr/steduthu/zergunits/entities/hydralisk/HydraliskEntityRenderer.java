@@ -19,7 +19,7 @@ public class HydraliskEntityRenderer extends MobRenderer<HydraliskEntity, Hydral
     @Override
     @ParametersAreNonnullByDefault
     @Nonnull
-    public ResourceLocation getTextureLocation(HydraliskEntity hydralisk) {
+    public ResourceLocation getTextureLocation(HydraliskEntity hydraliskEntity) {
         return TEXTURE;
     }
 }
