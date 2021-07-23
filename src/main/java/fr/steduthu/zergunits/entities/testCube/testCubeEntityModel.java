@@ -33,9 +33,15 @@ public class testCubeEntityModel<T extends testCubeEntity> extends EntityModel<T
         modelRenderer.zRot = z;
     }
 
+    //@Override
+    //@ParametersAreNonnullByDefault
+    public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+        bb_main.render(matrixStack, buffer, packedLight, packedOverlay);
+    }
+
     @Override
     @ParametersAreNonnullByDefault
-    public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-        bb_main.render(matrixStack, buffer, packedLight, packedOverlay);
+    public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder iVertexBuilder, int i, int i1, float v, float v1, float v2, float v3) {
+        render(matrixStack, iVertexBuilder, i, i1, v, v1, v2, v3);
     }
 }

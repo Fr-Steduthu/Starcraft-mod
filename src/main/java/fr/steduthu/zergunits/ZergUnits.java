@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -28,9 +29,7 @@ public class ZergUnits{
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-
 		bus.addListener(this::setup);
-		bus.addListener(this::clientSetup);
 
 		ModItems.ITEMS.register(bus);
 		EntityTypesInit.ENTITY_TYPES.register(bus);
@@ -44,10 +43,5 @@ public class ZergUnits{
 			//GlobalEntityTypeAttributes.put(EntityTypesInit.HYDRALISK.get(), HydraliskEntity.setAttributes().build());
 			GlobalEntityTypeAttributes.put(EntityTypesInit.CUBE.get(), testCubeEntity.setAttributes().build());
 		});
-	}
-
-	private void clientSetup(FMLClientSetupEvent e){
-		//RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HYDRALISK.get(), HydraliskEntityRenderer::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.CUBE.get(), testCubeEntityModelRenderer::new);
 	}
 }
