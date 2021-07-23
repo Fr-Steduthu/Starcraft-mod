@@ -6,6 +6,7 @@ import fr.steduthu.zergunits.entities.testCube.testCubeEntity;
 import fr.steduthu.zergunits.entities.testCube.testCubeEntityModelRenderer;
 import fr.steduthu.zergunits.init.EntityTypesInit;
 import fr.steduthu.zergunits.init.ModItems;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -17,32 +18,35 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 
-@Mod(ZERGUNITS.MODID)
+@Mod(ZergUnits.MODID)
 
-public class ZERGUNITS{
+public class ZergUnits{
 	
 	public static final String MODID = "zergunits";
 
-	public ZERGUNITS() {
-
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientsetup);
+	public ZergUnits() {
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
+
+		bus.addListener(this::setup);
+		bus.addListener(this::clientSetup);
+
 		ModItems.ITEMS.register(bus);
 		EntityTypesInit.ENTITY_TYPES.register(bus);
+
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SuppressWarnings("deprecation")
 	private void setup(FMLCommonSetupEvent e){
-		MinecraftForge.EVENT_BUS.register(this);
 		DeferredWorkQueue.runLater(()->{
 			//GlobalEntityTypeAttributes.put(EntityTypesInit.HYDRALISK.get(), HydraliskEntity.setAttributes().build());
 			GlobalEntityTypeAttributes.put(EntityTypesInit.CUBE.get(), testCubeEntity.setAttributes().build());
 		});
 	}
 
-	private void clientsetup(FMLClientSetupEvent e){
+	private void clientSetup(FMLClientSetupEvent e){
 		//RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HYDRALISK.get(), HydraliskEntityRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.CUBE.get(), testCubeEntityModelRenderer::new);
 	}
