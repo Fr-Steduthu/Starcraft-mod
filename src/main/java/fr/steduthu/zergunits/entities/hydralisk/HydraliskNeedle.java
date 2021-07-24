@@ -21,11 +21,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class HydraliskNeedle extends ThrowableEntity {
 
 
-    public HydraliskNeedle(EntityType<? extends ThrowableEntity> type, World world) {
+    public HydraliskNeedle(EntityType<? extends HydraliskNeedle> type, World world) {
         super(type, world);
     }
 
-    protected HydraliskNeedle(EntityType<? extends ThrowableEntity> type, World world, LivingEntity owner) {
+    protected HydraliskNeedle(EntityType<? extends HydraliskNeedle> type, World world, LivingEntity owner) {
         super(type, owner, world);
     }
 
