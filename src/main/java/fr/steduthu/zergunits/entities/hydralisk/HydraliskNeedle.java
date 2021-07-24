@@ -1,10 +1,8 @@
 package fr.steduthu.zergunits.entities.hydralisk;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.IRendersAsItem;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.ThrowableEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -12,7 +10,6 @@ import net.minecraft.network.IPacket;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,20 +18,16 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @OnlyIn(value = Dist.CLIENT, _interface = IRendersAsItem.class)
-public class HydraliskNeedle extends ProjectileEntity {
+public class HydraliskNeedle extends ThrowableEntity {
 
-    public HydraliskNeedle(EntityType<? extends ProjectileEntity> type, World world, LivingEntity thrower) {
-        super(type, thrower, world);
+
+    public HydraliskNeedle(EntityType<? extends ThrowableEntity> type, World world) {
+        super(type, world);
     }
 
-    /*public HydraliskNeedle(EntityType<? extends HydraliskNeedle> type, World world) {
-        super(type, world);
-    }*/
-
-    /*public HydraliskNeedle(EntityType<? extends ThrowableEntity> entityType, World world) {
-        this(entityType, world, null);
-    }*/
-
+    protected HydraliskNeedle(EntityType<? extends ThrowableEntity> type, World world, LivingEntity owner) {
+        super(type, owner, world);
+    }
 
     @Override
     protected void defineSynchedData() {
