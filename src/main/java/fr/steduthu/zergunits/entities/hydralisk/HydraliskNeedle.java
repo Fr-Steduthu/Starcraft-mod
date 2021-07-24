@@ -4,9 +4,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.IRendersAsItem;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.ThrowableEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.network.IPacket;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
@@ -19,9 +21,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @OnlyIn(value = Dist.CLIENT, _interface = IRendersAsItem.class)
-public class HydraliskNeedle extends ThrowableEntity {
+public class HydraliskNeedle extends ProjectileEntity {
 
-    public HydraliskNeedle(EntityType<? extends ThrowableEntity> type, World world, LivingEntity thrower) {
+    public HydraliskNeedle(EntityType<? extends ProjectileEntity> type, World world, LivingEntity thrower) {
         super(type, thrower, world);
     }
 
@@ -29,9 +31,10 @@ public class HydraliskNeedle extends ThrowableEntity {
         super(type, world);
     }*/
 
-    public HydraliskNeedle(EntityType<? extends ThrowableEntity> entityType, World world) {
+    /*public HydraliskNeedle(EntityType<? extends ThrowableEntity> entityType, World world) {
         this(entityType, world, null);
-    }
+    }*/
+
 
     @Override
     protected void defineSynchedData() {
@@ -69,6 +72,11 @@ public class HydraliskNeedle extends ThrowableEntity {
         } else {
             super.handleEntityEvent(id);
         }
+    }
+
+    @Override
+    public IPacket<?> getAddEntityPacket() {
+        return null;
     }
 
     @Override
