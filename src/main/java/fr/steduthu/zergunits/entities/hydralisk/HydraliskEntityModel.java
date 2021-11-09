@@ -2,6 +2,7 @@ package fr.steduthu.zergunits.entities.hydralisk;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
@@ -126,11 +127,6 @@ public class HydraliskEntityModel<T extends HydraliskEntity> extends EntityModel
     public void setupAnim(HydraliskEntity hydraliskEntity, float v, float v1, float v2, float v3, float v4) {
 
     }
-
-    /*@Override
-    public void setRotationAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-        //previously the render function, render code was moved to a method below
-    }*/
 
     @Override
     @ParametersAreNonnullByDefault

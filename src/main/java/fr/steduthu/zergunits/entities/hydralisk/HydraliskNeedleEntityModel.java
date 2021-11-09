@@ -1,4 +1,8 @@
-package fr.steduthu.zergunits.entities.testCube;
+package fr.steduthu.zergunits.entities.hydralisk;
+
+// Made with Blockbench 3.8.4
+// Exported for Minecraft version 1.15 - 1.16
+// Paste this class into your mod and generate all required imports
 
 
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -8,20 +12,22 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class testCubeEntityModel<T extends testCubeEntity> extends EntityModel<T> {
+public class HydraliskNeedleEntityModel<T extends HydraliskNeedleEntity> extends EntityModel<T> {
     private final ModelRenderer bb_main;
 
-    public testCubeEntityModel() {
-            texHeight = 16;
-            texWidth = 16;
+    public HydraliskNeedleEntityModel() {
+        texHeight = 16;
+        texWidth = 16;
 
-            bb_main = new ModelRenderer(this);
-            bb_main.setPos(0.0F, 24.0F, 0.0F);
-            bb_main.texOffs(0, 0).addBox(-8.0F, -16.0F, -8.0F, 16.0F, 16.0F, 16.0F, 0.0F, false);
-        }
+        bb_main = new ModelRenderer(this);
+        bb_main.setPos(0.0F, 24.0F, 0.0F);
+        bb_main.setTexSize(0, 0).addBox(-1.0F, -2.0F, -4.0F, 2.0F, 2.0F, 5.0F, 0.0F, false);
+        bb_main.setTexSize(0, 7).addBox(-0.5F, -1.5F, -8.0F, 1.0F, 1.0F, 4.0F, 0.0F, false);
+    }
 
     @Override
-    public void setupAnim(T t, float v, float v1, float v2, float v3, float v4) {
+    @ParametersAreNonnullByDefault
+    public void setupAnim(HydraliskNeedleEntity hydraliskEntity, float v, float v1, float v2, float v3, float v4) {
 
     }
 

@@ -1,9 +1,8 @@
 package fr.steduthu.zergunits.init;
 
 import fr.steduthu.zergunits.ZergUnits;
-import fr.steduthu.zergunits.utils.ModItemGroups;
+import fr.steduthu.zergunits.ModItemGroups;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

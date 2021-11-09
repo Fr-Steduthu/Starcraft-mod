@@ -1,16 +1,13 @@
 package fr.steduthu.zergunits;
 
-import fr.steduthu.zergunits.entities.hydralisk.HydraliskEntity;
-import fr.steduthu.zergunits.entities.hydralisk.HydraliskEntityRenderer;
-import fr.steduthu.zergunits.entities.testCube.testCubeEntity;
-import fr.steduthu.zergunits.entities.testCube.testCubeEntityModelRenderer;
-import fr.steduthu.zergunits.init.EntityTypesInit;
-import fr.steduthu.zergunits.init.ModItems;
-import net.minecraft.entity.EntityType;
+import fr.steduthu.zergunits.entities.hydralisk.*;
+import fr.steduthu.zergunits.entities.zergling.*;
+import fr.steduthu.zergunits.init.*;
+
+
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -20,7 +17,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 
 @Mod(ZergUnits.MODID)
-
 public class ZergUnits{
 	
 	public static final String MODID = "zergunits";
@@ -30,6 +26,7 @@ public class ZergUnits{
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		bus.addListener(this::setup);
+		bus.addListener(this::clientSetup);
 
 		ModItems.ITEMS.register(bus);
 		EntityTypesInit.ENTITY_TYPES.register(bus);
@@ -41,7 +38,14 @@ public class ZergUnits{
 	private void setup(FMLCommonSetupEvent e){
 		DeferredWorkQueue.runLater(()->{
 			GlobalEntityTypeAttributes.put(EntityTypesInit.HYDRALISK.get(), HydraliskEntity.setAttributes().build());
-			GlobalEntityTypeAttributes.put(EntityTypesInit.CUBE.get(), testCubeEntity.setAttributes().build());
 		});
+	}
+
+
+	private void clientSetup(FMLClientSetupEvent event) {
+		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HYDRALISK_NEEDLE.get(), HydraliskNeedleEntityRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.HYDRALISK.get(), HydraliskEntityRenderer::new);
+
+		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.ZERGLING.get(), ZerglingEntityRenderer::new);
 	}
 }

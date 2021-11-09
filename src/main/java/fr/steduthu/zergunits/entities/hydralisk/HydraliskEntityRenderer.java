@@ -1,25 +1,12 @@
 package fr.steduthu.zergunits.entities.hydralisk;
 
-import fr.steduthu.zergunits.ZergUnits;
+import fr.steduthu.zergunits.entities.CustomMobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.util.ResourceLocation;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
 
-public class HydraliskEntityRenderer extends MobRenderer<HydraliskEntity, HydraliskEntityModel<HydraliskEntity>> {
-
-    public static final ResourceLocation TEXTURE = new ResourceLocation(ZergUnits.MODID, "textures/entity/hydralisk.png");
+public class HydraliskEntityRenderer extends CustomMobRenderer<HydraliskEntity, HydraliskEntityModel<HydraliskEntity>>{
 
     public HydraliskEntityRenderer(EntityRendererManager manager) {
-        super(manager, new HydraliskEntityModel<>(), 0.7f);
-    }
-
-    @Override
-    @ParametersAreNonnullByDefault
-    @Nonnull
-    public ResourceLocation getTextureLocation(HydraliskEntity hydraliskEntity) {
-        return TEXTURE;
+        super(manager, new HydraliskEntityModel<>(), 0.7f, "textures/entity/hydralisk.png");
     }
 }

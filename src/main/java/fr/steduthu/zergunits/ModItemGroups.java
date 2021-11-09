@@ -1,4 +1,4 @@
-package fr.steduthu.zergunits.utils;
+package fr.steduthu.zergunits;
 
 import fr.steduthu.zergunits.init.ModItems;
 import mcp.MethodsReturnNonnullByDefault;
