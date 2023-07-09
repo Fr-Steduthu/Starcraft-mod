@@ -1,0 +1,6 @@
+{
+  "item.heartoftheswarm.zerg_flesh" : "Zerg flesh",
+  "itemGroup.heartoftheswarm.heartoftheswarm_zerg_tab" : "Zerg units",
+  "entity.heartoftheswarm.hydralisk" : "Hydralisk",
+  "entity.heartoftheswarm.zergling": "Zergling"
+}

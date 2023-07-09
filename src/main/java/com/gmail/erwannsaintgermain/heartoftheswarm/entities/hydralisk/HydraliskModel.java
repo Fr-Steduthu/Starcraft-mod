@@ -1,14 +1,13 @@
-package fr.steduthu.zergunits.entities.hydralisk;
+package com.gmail.erwannsaintgermain.heartoftheswarm.entities.hydralisk;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class HydraliskEntityModel<T extends HydraliskEntity> extends EntityModel<T> {
+public class HydraliskModel extends EntityModel<HydraliskEntity> {
 
     private final ModelRenderer Torso;
     private final ModelRenderer Head;
@@ -25,7 +24,7 @@ public class HydraliskEntityModel<T extends HydraliskEntity> extends EntityModel
     private final ModelRenderer Arm_left;
     private final ModelRenderer arm2;
 
-    public HydraliskEntityModel() {
+    public HydraliskModel() {
         texHeight = 64;
         texWidth = 64;
 
@@ -130,7 +129,14 @@ public class HydraliskEntityModel<T extends HydraliskEntity> extends EntityModel
 
     @Override
     @ParametersAreNonnullByDefault
-    public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+    public void renderToBuffer(
+        MatrixStack matrixStack,
+        IVertexBuilder buffer,
+        int packedLight,
+        int packedOverlay,
+        float red, float green, float blue, float alpha
+    )
+    {
         Torso.render(matrixStack, buffer, packedLight, packedOverlay);
     }
 
